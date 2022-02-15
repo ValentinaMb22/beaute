@@ -65,11 +65,11 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-light',
+    'usermenu_image' => true,
+    'usermenu_desc' => true,
+    'usermenu_profile_url' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -248,23 +248,31 @@ return [
         ],
         [
             'text' => 'Tablero de mandos',
-            'url'  => '/',
+            'url'  => 'admin',
         ],
         [
             'text' => 'Salas',
             'route'  => 'salas.index',
+            'icon' => 'fas fa-fw fa-building',
+            'icon_color' =>'warning',
         ],
         [
             'text' => 'Usuarios',
-            'route'  => 'usuarios.index',
+            'route'  => 'admin.users.index',
+            'icon' => 'fas fa-fw fa-users',
+            'icon_color' =>'info',
         ],
         [
             'text' => 'Servicios',
             'route'  => 'servicios.index',
+            'icon' => 'fas fa-fw fa-heart',
+            'icon_color' =>'danger',
         ],
         [
             'text' => 'Categorias',
             'route'  => 'categorias.index',
+            'icon' => 'fas fa-fw fa-book',
+            'icon_color' =>'info',
         ],
 
         [
@@ -274,7 +282,7 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'CONFIGURACIÓN DE CUENTA'],
         [
             'text' => 'Perfil',
             'url'  => 'admin/settings',

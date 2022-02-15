@@ -1,19 +1,19 @@
- @extends('adminlte::page')
+@extends('adminlte::page')
 
-@section('title', 'Dashboard')
-
+@section('title', 'Dashboard')  
+ 
 @section('content_header')
-    <h1>Tablero de mando</h1>
-@stop
-
+    <h1>Tablero de mandos</h1>
+@stop  
+  
 @section('content')
-    <p>Bienvenido al panel de administrador.--</p>
-    
+    <p>Bienvenido al panel de administrador.</p>
     <div class="card" style="height: 400px">
         <div class="card-body" style="background-image: url('image/welcome.jpg');background-size: cover">
         </div>
     </div>
 @stop
+
 
 
 @section('css')
@@ -25,4 +25,3 @@
         console.log('Hi!');
     </script>
 @stop
- 

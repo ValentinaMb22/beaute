@@ -55,17 +55,6 @@
                                         <button type="submit" class="btn btn-secondary"><i class="far fa-trash-alt"></i></button>
                                     </form>
                                 </td>
-
-
-
-
-
-
-
-
-
-
-
                             </form>
                         </tr>
                     </tbody>

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SalaController;
-use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\CitaController;
@@ -30,14 +30,17 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-/* Ruta para salas */
-Route::resource('salas',SalaController::class);
-/* Ruta para usuarios */
-Route::resource('usuarios',UsuarioController::class);
-/* Ruta para usuarios */
-Route::resource('categorias',CategoriaController::class);
+  /* Ruta para salas */
+Route::resource('salas',SalaController::class)->names('salas');
+
 /* Ruta para servicios */
-Route::resource('servicios',ServicioController::class);
+Route::resource('servicios',ServicioController::class)->names('servicios');
+
+/* Ruta para categorias */
+Route::resource('categorias',CategoriaController::class)->names('categorias');
+
+/* Ruta para usuarios */
+/* Route::resource('users',UserController::class)->names('users'); */
 
 /* Rutas paginas estaticas */
 Route::view('/nosotros', 'nosotros');
@@ -50,5 +53,4 @@ Route::get('getSala/{sala}',[CitaController::class,
 /* Route::get('getServicio/{sala}',[CitaController::class,
 'getServicio'])->name('getServicio'); */
 
-/* Ruta citas */
-Route::resource('citas',CitaController::class);
+

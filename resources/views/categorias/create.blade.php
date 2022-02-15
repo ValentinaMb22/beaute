@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Crear categoría')
+@section('plugins.Sweetalert2', true)
 
 @section('content_header')
     <h1>Crear categoría</h1>
@@ -21,9 +22,9 @@
                         @enderror
                     </div>
                 </div>
-                    <div class="col-md-12 mt-4 text-center align-content-center">
-                        <button type="submit" class="btn btn-info">Guardar</button>
-                    </div>
+                <div class="col-md-12 mt-4 text-center align-content-center">
+                    <button type="submit" class="btn btn-info">Guardar</button>
+                </div>
             </form>
         </div>
     </div>
@@ -36,6 +37,10 @@
 
 @section('js')
     <script>
-        console.log('Hi!');
+        Swal.fire(
+            'Good job!',
+            'categoria creada correctamente!',
+            'success'
+        )
     </script>
 @stop

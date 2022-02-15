@@ -3,11 +3,11 @@
 @section('title', 'Usuarios')
 
 @section('content_header')
-    <h1>Usuarios</h1>
+    <h1>Lista de Usuarios</h1>
 @stop
 
 @section('content')
-<a href="{{route('register')}}" class="btn btn-info">Crear usuario</a>
+<a href="{{route('admin.users.create')}}" class="btn btn-info">Crear usuario</a>
 <div class="card" style="margin-top: 10px">
     <div class="card-body">
             <table class="table table-success table-striped table-info">
@@ -22,12 +22,12 @@
                     <tbody>
                         <tr>
                             <td>{{$user->id}}</td>
-                            <td><a title=" Ver usuario" href="{{route('users.show',$user)}}">{{$user->name}}</a></td>
+                            <td><a title=" Ver usuario" href="{{route('admin.users.show',$user)}}">{{$user->name}}</a></td>
                             
-                             <form action="{{route('users.destroy',$user)}}" method="POST">
+                             <form action="{{route('admin.users.destroy',$user)}}" method="POST">
                                 @csrf
                                 @method('delete')
-                            <td><a href="{{route('users.edit',$user->id)}}" class="btn btn-info">Editar</a>
+                            <td><a href="{{route('admin.users.edit',$user->id)}}" class="btn btn-info">Editar</a>
                                 <button class="btn btn-danger">Eliminar</button>
                             </td>
                            </form>

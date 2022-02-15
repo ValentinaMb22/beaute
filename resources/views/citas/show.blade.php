@@ -16,7 +16,10 @@
                 </thead>
                        <tr>
                            <td>{{$cita->id}}</td>
-                           <td>{{$user->id}}</td>
+                           <td>{{$cita->sala_id}}</td>
+                           <td>{{$cita->servicio_id}}</td>
+                           <td>{{$cita->fecha}}</td>
+                           <td>{{$cita->hora}}</td>
                        </tr>
             </table>
         </div>

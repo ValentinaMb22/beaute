@@ -7,10 +7,10 @@
 @stop
 
 @section('content')
-    <a href="{{ route('users.index') }}" class="btn btn-info">Volver a usuarios</a><br><br>
+    <a href="{{ route('admin.users.index') }}" class="btn btn-info">Volver a usuarios</a><br><br>
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('users.store') }}" method="POST">
+            <form action="{{ route('admin.users.store') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 col-lg-6 col-sm-12">

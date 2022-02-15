@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Models\Categoria;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoriaController extends Controller
+class PruebaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::paginate(5);
-        return view('admin.categorias.index',compact('categorias'));
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('categorias.create');
+        //
     }
 
     /**
@@ -36,11 +35,7 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-                     'nombre' =>'required',
-                    ]);
-        $categoria = Categoria::create($request->all());
-        return redirect()->route('categorias.index',$categoria);
+        //
     }
 
     /**
@@ -60,9 +55,9 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit($id)
     {
-        return view('categorias.edit',compact('categoria'));
+        //
     }
 
     /**
@@ -72,10 +67,9 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $id)
     {
-        $categoria->update($request->all());
-        return redirect()->route('categorias.index',$categoria);
+        //
     }
 
     /**
@@ -84,9 +78,8 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($id)
     {
-        $categoria->delete();
-        return redirect()->route('categorias.index');
+        //
     }
 }
