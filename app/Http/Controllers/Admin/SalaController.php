@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Sala;
 use App\Models\Servicio;
@@ -17,7 +18,7 @@ class SalaController extends Controller
     public function index()
     {
         $salas =  Sala::simplePaginate(3);
-        return view('salas.index', compact('salas'));
+        return view('admin.salas.index', compact('salas'));
     }
 
     /**
@@ -27,7 +28,7 @@ class SalaController extends Controller
      */
     public function create()
     {
-        return view('salas.create');
+        return view('admin.salas.create');
     }
 
     /**
@@ -77,7 +78,7 @@ class SalaController extends Controller
         ->select("servicios.nombre","servicios.descripcion","servicios.precio",)
         ->get();
        // return $servicios;
-        return view('salas.show', compact('sala','servicios'));
+        return view('admin.salas.show', compact('sala','servicios'));
     }
 
     /**
@@ -88,7 +89,7 @@ class SalaController extends Controller
      */
     public function edit(Sala $sala)
     {
-        return view('salas.edit', compact('sala'));
+        return view('admin.salas.edit', compact('sala'));
     }
 
     /**
@@ -125,7 +126,7 @@ class SalaController extends Controller
             $sala->save();
         }
         session()->flash('update', 'Sala actualizada satisfactoriamente!!');
-        return redirect()->route('salas.index');
+        return redirect()->route('admin.salas.index');
 
 
         //$sala->update($request->all());

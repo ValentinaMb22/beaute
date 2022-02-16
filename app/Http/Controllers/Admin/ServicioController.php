@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\controller;
-use App\Models\Categoria;
 
+use App\Http\Controllers\Controller;
+
+use App\Models\Categoria;
+use App\Models\Servicio;
+use App\Models\Sala;
 use Illuminate\Http\Request;
 
-class CategoriaController extends Controller
+class ServicioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +18,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::paginate(5);
-        return view('admin.categorias.index',compact('categorias'));
+         $servicios = Servicio::all();
+         return view('admin.servicios.index',compact('servicios')); 
     }
 
     /**
@@ -26,7 +29,9 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('admin.categorias.create');
+        $salas = Sala::all();
+        $categorias = Categoria::all();
+        return view('admin.servicios.create',compact('salas','categorias')); 
     }
 
     /**
@@ -37,11 +42,8 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-                     'nombre' =>'required',
-                    ]);
-        $categoria = Categoria::create($request->all());
-        return redirect()->route('admin.categorias.index',$categoria);
+        $servicio = Servicio::create($request->all());
+        return redirect()->route('admin.servicios.index');
     }
 
     /**
@@ -50,9 +52,9 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria)
+    public function show(Servicio $servicio)
     {
-        return view('admin.categorias.show',compact('categoria'));
+        return view('admin.servicios.show',compact('servicio'));
     }
 
     /**
@@ -61,9 +63,11 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit(Servicio $servicio)
     {
-        return view('admin.categorias.edit',compact('categoria'));
+        $salas = Sala::all();
+        $categorias = Categoria::all();
+        return view('admin.servicios.edit',compact('salas','categorias','servicio')); 
     }
 
     /**
@@ -73,10 +77,10 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, Servicio $servicio)
     {
-        $categoria->update($request->all());
-        return redirect()->route('categorias.index',$categoria);
+        $servicio ->update($request->all());
+        return redirect()->route('admin.servicios.show',$servicio);
     }
 
     /**
@@ -85,9 +89,9 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $categoria)
+    public function destroy(Servicio $servicio)
     {
-        $categoria->delete();
-        return redirect()->route('categorias.index');
+        $servicio->delete();
+        return redirect()->route('admin.servicios.index');
     }
 }

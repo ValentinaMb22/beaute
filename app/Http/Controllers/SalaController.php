@@ -17,7 +17,7 @@ class SalaController extends Controller
     public function index()
     {
         $salas =  Sala::simplePaginate(3);
-        return view('salas.index', compact('salas'));
+        return view('admin.salas.index', compact('salas'));
     }
 
     /**

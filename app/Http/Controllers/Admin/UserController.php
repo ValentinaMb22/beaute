@@ -79,9 +79,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $id)
+    public function edit(User $user)
     {
-        return view('users.edit',compact('users'));
+        return view('admin.users.edit',compact('user'));
     }
 
     /**

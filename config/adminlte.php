@@ -252,7 +252,7 @@ return [
         ],
         [
             'text' => 'Salas',
-            'route'  => 'salas.index',
+            'route'  => 'admin.salas.index',
             'icon' => 'fas fa-fw fa-building',
             'icon_color' =>'warning',
         ],
@@ -260,19 +260,26 @@ return [
             'text' => 'Usuarios',
             'route'  => 'admin.users.index',
             'icon' => 'fas fa-fw fa-users',
-            'icon_color' =>'info',
+            'icon_color' =>'light',
         ],
-        [
+         [
             'text' => 'Servicios',
-            'route'  => 'servicios.index',
+            'route'  => 'admin.servicios.index',
             'icon' => 'fas fa-fw fa-heart',
             'icon_color' =>'danger',
-        ],
+        ], 
         [
             'text' => 'Categorias',
-            'route'  => 'categorias.index',
+            'route'  => 'admin.categorias.index',
             'icon' => 'fas fa-fw fa-book',
-            'icon_color' =>'info',
+            'icon_color' =>'purple',
+        ],
+        
+        [
+            'text' => 'Citas',
+            'route'  => 'admin.citas.index',
+            'icon' => 'fas fa-fw fa-book',
+            'icon_color' =>'purple',
         ],
 
         [

@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<a href="{{route('users.index')}}" class="btn btn-info">Volver a usuarios</a><br><br>
+<a href="{{route('admin.users.index')}}" class="btn btn-info">Volver a usuarios</a><br><br>
 <div class="card">
     <div class="card-body">
         <table class="table table-success table-striped table-info">
