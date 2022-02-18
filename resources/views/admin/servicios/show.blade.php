@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <a href="{{route('admin.servicios.index')}}" class="btn btn-info">Volver servicios</a><br><br>
+        <a href="{{route('admin.servicios.index')}}" class="btn btn-info">Volver a servicios</a><br><br>
 <table class="table table-success table-striped table-info">
     <thead>
         <tr>
@@ -36,10 +36,26 @@
 </table>
     </div>
 </div>
+<footer class="container">
+    <div >
+        <small>BeautéApp ©2022 | Todos los derechos reservados. 
+        </small>
+    </div>
+</footer>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <style>
+        .container {
+            width: 500px;
+            margin: auto;
+            position: fixed;
+            bottom: 0;
+            right: 300px;  
+            color:rgb(10, 10, 10); 
+        }
+    </style>
 @stop
 
 @section('js')

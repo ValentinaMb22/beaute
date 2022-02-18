@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<a href="{{route('admin.users.create')}}" class="btn btn-info">Crear usuario</a>
+<a href="{{route('register')}}" class="btn btn-info">Crear usuario</a>
 <div class="card" style="margin-top: 10px">
     <div class="card-body">
             <table class="table table-success table-striped table-info">

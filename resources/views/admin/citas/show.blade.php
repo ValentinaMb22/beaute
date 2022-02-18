@@ -1,6 +1,6 @@
 <x-app-layout>
 <h1>esta pagina muestra un cita en especifico</h1>
-<a href="{{route('citas.index')}}" class="btn btn-info">Volver a citas</a>
+<a href="{{route('admin.citas.index')}}" class="btn btn-info">Volver a citas</a>
     <div class="card">
         <div class="card-body">
             <table class="table table-light table-striped table-info">
@@ -14,11 +14,8 @@
                     </tr>
                 </thead>
                        <tr>
-                           <td>{{$cita->id}}</td>
-                           <td>{{$cita->sala_id}}</td>
-                           <td>{{$cita->servicio_id}}</td>
-                           <td>{{$cita->fecha}}</td>
-                           <td>{{$cita->hora}}</td>
+                           <td>{{$cita}}</td>
+                           
                        </tr>
             </table>
         </div>

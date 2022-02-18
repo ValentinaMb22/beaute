@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         //Sala::factory(5)->create();
-       // $this->call(RoleSeeder::class);
+        $this->call(RoleSeeder::class);
         //Categoria::factory(5)->create();
         //Servicio::factory(5)->create();
         //Usuario::factory(5)->create();

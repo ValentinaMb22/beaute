@@ -18,7 +18,7 @@
                         @else
                             <a href="{{ route('login') }}" class=" btn btn-info">Iniciar sesión</a>
                         @endif  --}}
-                        <a href="{{route('salas.show',$sala)}}" class="btn btn-info">Ver más...</a>
+                        <a href="{{route('admin.salas.show',$sala)}}" class="btn btn-info">Ver más...</a>
                         </div>
                     </div>
                 </div>

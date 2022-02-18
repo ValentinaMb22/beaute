@@ -7,8 +7,10 @@
 @stop
 
 @section('content')
-<a href="{{route('admin.categorias.create')}}" class="btn btn-info">Crear categoría</a>
-    <div class="card">
+@can('admin.categorias.create')
+    <a href="{{route('admin.categorias.create')}}" class="btn btn-info">Crear categoría</a>
+@endcan
+    <div class="card" style="width: 50%">
         <div class="card-body">
             <table class="table table-success table-striped table-info">
                 <thead>
@@ -27,8 +29,11 @@
                             <form action="{{route('admin.categorias.destroy',$categoria)}}" method="POST">
                                 @csrf
                                 @method('delete')
-                            <td><a href="{{route('admin.categorias.edit',$categoria)}}" class="btn btn-info">Editar</a>
+                            <td>
+                                @can('admin.categorias.edit')
+                                   <a href="{{route('admin.categorias.edit',$categoria)}}" class="btn btn-info">Editar</a>
                                 <button class="btn btn-danger">Eliminar</button>
+                                @endcan
                             </td>
                            </form>
                         </tr>
@@ -40,8 +45,8 @@
             </div> 
         </div>
     </div>
-    <footer>
-        <div class="container">
+    <footer class="container">
+        <div >
             <small>BeautéApp ©2022 | Todos los derechos reservados. 
             </small>
         </div>
@@ -51,9 +56,13 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <style>
-        footer .container {
-            width: 400px;
+       .container {
+            width: 500px;
             margin: auto;
+            position: fixed;
+            bottom: 0;
+            right: 300px;  
+            color:rgb(10, 10, 10); 
         }
     </style>
 @stop

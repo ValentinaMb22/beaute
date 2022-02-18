@@ -9,7 +9,9 @@
 @section('content')
 
     {{-- aqui comienza el la vista para mostrar las salas --}}
+    @can('admin.salas.create')
     <a href="{{ route('admin.salas.create') }}" class="btn btn-info">Crear sala</a>
+    @endcan
 
     <div class="card">
         <div class="card-body">
@@ -48,12 +50,18 @@
                                 </td>  --}}
 
                                 <td class="grid">
+                                    @can('admin.salas.edit')
                                     <a href="{{ route('admin.salas.edit', $sala) }}" class="btn btn-secondary"><i
-                                            class="far fa-edit"></i></a>
+                                        class="far fa-edit"></i></a>
+                                    @endcan
+                                    @can('admin.salas.destroy')
                                     <form action="{{ route('admin.salas.destroy', $sala) }}" method="POST">
                                         @csrf @method('delete')
-                                        <button type="submit" class="btn btn-secondary"><i class="far fa-trash-alt"></i></button>
+                                        
+                                          <button type="submit" class="btn btn-secondary"><i class="far fa-trash-alt"></i></button>
+                                        
                                     </form>
+                                    @endcan
                                 </td>
                             </form>
                         </tr>
@@ -66,6 +74,12 @@
         </div>
     </div>
     {{-- aqui termina la vista para mostrar las salas --}}
+    <footer class="container">
+        <div >
+            <small>BeautéApp ©2022 | Todos los derechos reservados. 
+            </small>
+        </div>
+    </footer>
 @stop
 
 @section('css')
@@ -92,6 +106,14 @@
         .grid a,
         button {
             width: 40px;
+        }
+        .container {
+            width: 500px;
+            margin: auto;
+            position: fixed;
+            bottom: 0;
+            right: 300px;  
+            color:rgb(10, 10, 10); 
         }
 
     </style>

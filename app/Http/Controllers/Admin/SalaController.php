@@ -49,7 +49,6 @@ class SalaController extends Controller
         if (isset($validaciones)) {
             $sala = new Sala;
             $sala->nombre = $request->nombre;
-            $sala->logotipo = $request->nombre;
             $sala->correo = $request->correo;
             $sala->direccion = $request->direccion;
             $sala->telefono = $request->telefono;
@@ -59,7 +58,7 @@ class SalaController extends Controller
             $sala->save();
             session()->flash('message', 'Sala creada
                 satisfactoriamente!!');
-            return redirect()->route('salas.index');
+            return redirect()->route('admin.salas.index');
         }
         // $sala = Sala::create($request->all());
         //return redirect()->route('salas.index',$sala);
@@ -142,6 +141,6 @@ class SalaController extends Controller
     public function destroy(Sala $sala)
     {
         $sala->delete();
-        return redirect()->route('salas.index');
+        return redirect()->route('admin.salas.index');
     }
 }

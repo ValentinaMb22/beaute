@@ -17,9 +17,13 @@
                 ">Sobre nosotros</a>
                 <a class="nav-link" href="contacto"> Contáctenos</a>
                 @if (Auth::user())
+                @can('admin.home')
+                 <a class="nav-link" href="{{route('admin.home')}}">Dashboard</a>
+                @endcan
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="nav-link btn btn-outline-info">Salir</button>
+                        <button type="submit" class="nav-link btn btn-info">Salir</button>
                     </form>
                 @else
                     <li class="nav-item">

@@ -39,9 +39,13 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <style>
-        footer .container {
+        .container {
             width: 400px;
             margin: auto;
+            position: fixed;
+            bottom: 0;
+            right: 300px;  
+            color:rgb(10, 10, 10);
         }
     </style>
 @stop

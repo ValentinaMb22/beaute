@@ -8,9 +8,6 @@ use App\Http\Controllers\Admin\CategoriaController;
 use App\Http\Controllers\Admin\ServicioController;
 use App\Http\Controllers\Admin\CitaController;
 
-
-
-
 /*  Route::get('', function () {
     return "hola mundo";
 }) */

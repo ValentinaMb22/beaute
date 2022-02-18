@@ -9,7 +9,9 @@
 @section('content')
 
     {{-- aqui comienza el la vista para mostrar las salas --}}
-    <a href="{{ route('salas.create') }}" class="btn btn-info">Crear sala</a>
+    @can('admin.salas.create', $post)
+        <a href="{{ route('salas.create') }}" class="btn btn-info">Crear sala</a>
+    @endcan
 
     <div class="card">
         <div class="card-body">
@@ -39,22 +41,22 @@
                             <td>{{ $sala->direccion }}</td>
                             <td>{{ $sala->telefono }}</td>
 
-                           {{--   <form action="{{ route('salas.destroy', $sala) }}" method="POST">
+                            {{-- <form action="{{ route('salas.destroy', $sala) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <td class="grid"><a href="{{ route('salas.edit', $sala) }}"
                                         class="btn btn-info">Editar</a>
                                     <button class="btn btn-danger">Eliminar</button>
-                                </td>  --}}
+                                </td> --}}
 
-                                <td class="grid">
-                                    <a href="{{ route('salas.edit', $sala) }}" class="btn btn-secondary"><i
-                                            class="far fa-edit"></i></a>
-                                    <form action="{{ route('salas.destroy', $sala) }}" method="POST">
-                                        @csrf @method('delete')
-                                        <button type="submit" class="btn btn-secondary"><i class="far fa-trash-alt"></i></button>
-                                    </form>
-                                </td>
+                            <td class="grid">
+                                <a href="{{ route('salas.edit', $sala) }}" class="btn btn-secondary"><i
+                                        class="far fa-edit"></i></a>
+                                <form action="{{ route('salas.destroy', $sala) }}" method="POST">
+                                    @csrf @method('delete')
+                                    <button type="submit" class="btn btn-secondary"><i class="far fa-trash-alt"></i></button>
+                                </form>
+                            </td>
                             </form>
                         </tr>
                     </tbody>
@@ -79,7 +81,7 @@
             /* ALTO_IMAGEN */
             background-position: center center;
             /* Centrado
-                    de imagen*/
+                        de imagen*/
             background-repeat: no-repeat;
         }
 

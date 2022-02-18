@@ -79,6 +79,12 @@
     </div>
     </div>
     {{-- fin del formulario de registro --}}
+    <footer class="container">
+        <div >
+            <small>BeautéApp ©2022 | Todos los derechos reservados. 
+            </small>
+        </div>
+    </footer>
 @stop
 
 @section('css')
@@ -110,6 +116,14 @@
         .imagen img{
         max-width: 100%;
         max-height: 10vh;
+        }
+        .container {
+            width: 500px;
+            margin: auto;
+            position: fixed;
+            bottom: 0;
+            right: 300px;  
+            color:rgb(10, 10, 10); 
         }
         </style>
 @stop

@@ -19,11 +19,13 @@ class CitaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        $citas = Cita::all();
-          //return $citas;
-        return view('citas.index',compact('citas'));
+        $citas = User::join("users","citas.user_id","=","users.id")
+        ->where("user_id",$user->id)
+        ->select("users.name","users.id")
+        ->get();
+        return view('admin.citas.index',compact('citas','user'));
 
     }
     /* Metodo para obtener la sala */
@@ -34,7 +36,7 @@ class CitaController extends Controller
        ->where("sala_id",$sala->id)
        ->select("servicios.nombre","servicios.precio","servicios.id")
        ->get();
-       return view('citas.create',compact('sala','servicios'));
+       return view('admin.citas.create',compact('sala','servicios'));
     } 
     
     /**
@@ -65,7 +67,7 @@ class CitaController extends Controller
         $cita->save();
       
         /*  $cita = Cita::create($request->all());*/
-        return redirect()->route('citas.index');  
+        return redirect()->route('admin.citas.index');  
        
     }
 
@@ -80,13 +82,14 @@ class CitaController extends Controller
        //return $sala;
        
     } 
-    public function show(Cita $cita, User $user)
+    public function show( Cita $cita, User $user)
     { 
-        $users = Cita::join("users","citas.user_id","=","users.id")
-       ->where("user_id",$user->id)
-       ->select("users.name","users.id")
-       ->get();
-        return view('citas.show',compact('cita','user'));
+        $users = User::join("citas","citas.user_id","=","citas.id")
+        ->where("cita_id",$user->id)
+        ->select("user.nombre","user.id")
+        ->get();
+       return view('admin.citas.show',compact('cita','user'));
+
     }
 
     /**

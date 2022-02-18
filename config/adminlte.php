@@ -247,32 +247,42 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text' => 'Pagina principal',
+            'url'  => '/',
+            'icon' => 'fas fa-fw fa-home',
+        ],
+        [
             'text' => 'Tablero de mandos',
-            'url'  => 'admin',
+            'route'  => 'admin.home',
+            'can' => 'admin.home'
         ],
         [
             'text' => 'Salas',
             'route'  => 'admin.salas.index',
             'icon' => 'fas fa-fw fa-building',
             'icon_color' =>'warning',
+            'can' => 'admin.salas.index'
         ],
         [
             'text' => 'Usuarios',
             'route'  => 'admin.users.index',
             'icon' => 'fas fa-fw fa-users',
             'icon_color' =>'light',
+            'can' => 'admin.users.index'
         ],
          [
             'text' => 'Servicios',
             'route'  => 'admin.servicios.index',
             'icon' => 'fas fa-fw fa-heart',
             'icon_color' =>'danger',
+            'can' => 'admin.servicios.index'
         ], 
         [
             'text' => 'Categorias',
             'route'  => 'admin.categorias.index',
             'icon' => 'fas fa-fw fa-book',
             'icon_color' =>'purple',
+            'can' => 'admin.categorias.index' 
         ],
         
         [
@@ -280,6 +290,8 @@ return [
             'route'  => 'admin.citas.index',
             'icon' => 'fas fa-fw fa-book',
             'icon_color' =>'purple',
+            'can' => 'admin.citas.index',
+            
         ],
 
         [
@@ -296,9 +308,10 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Cambiar Contraseña',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Mis citas',
+            'route'  => 'admin.citas.index',
+            'icon' => 'fas fa-fw fa-star',
+            'icon_color' => 'pink'
         ],
         [
             'text'    => 'multilevel',

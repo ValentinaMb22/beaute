@@ -7,9 +7,12 @@
 @stop
 
 @section('content')
+<div>
+    <a href="{{ route('admin.servicios.index') }}" class="btn btn-info">Volver a servicios</a>
+</div>
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('admin.servicios.store') }}" method="POST">
+            <form action="{{ route('admin.servicios.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 col-lg-6 col-sm-12">
@@ -26,7 +29,7 @@
                     <div class="col-md-6 col-lg-6 col-sm-12">
                         <label for="">Categoría:</label>
                         <select name="categoria_id" class="form-control">
-                            <option selected="true" disabled="disabled">Seleccione una catoría</option>
+                            <option selected="true" disabled="disabled">Seleccione una categoría</option>
                             @foreach ($categorias as $categoria)
                                 <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                             @endforeach
@@ -89,6 +92,12 @@
             </form>
         </div>
     </div>
+    <footer class="container">
+        <div >
+            <small>BeautéApp ©2022 | Todos los derechos reservados. 
+            </small>
+        </div>
+    </footer>
 
 @stop
 
@@ -121,6 +130,14 @@
         .imagen img{
         max-width: 100%;
         max-height: 10vh;
+        }
+        .container {
+            width: 500px;
+            margin: auto;
+            position: fixed;
+            bottom: 0;
+            right: 300px;  
+            color:rgb(10, 10, 10); 
         }
         </style>
 @stop

@@ -7,6 +7,9 @@
 @stop
 
 @section('content')
+<div>
+    <a href="{{ route('admin.servicios.index') }}" class="btn btn-info">Volver a servicios</a>
+</div>
     <div class="card">
         <div class="card-body">
             <form action="{{ route('servicios.update', $servicio) }}" method="POST">
@@ -84,6 +87,12 @@
             </form>
         </div>
     </div>
+    <footer class="container">
+        <div >
+            <small>BeautéApp ©2022 | Todos los derechos reservados. 
+            </small>
+        </div>
+    </footer>
 @stop
 
 @section('css')
@@ -118,6 +127,14 @@
         .imagen img {
             max-width: 100%;
             max-height: 10vh;
+        }
+        .container {
+            width: 500px;
+            margin: auto;
+            position: fixed;
+            bottom: 0;
+            right: 300px;  
+            color:rgb(10, 10, 10); 
         }
 
     </style>

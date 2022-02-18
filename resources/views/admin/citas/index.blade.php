@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+
     <section style="margin-top: 10px;height:450px;margin-bottom: 30px">
         <div class="card" style="width: 60%;margin:auto;padding:1% 5%">
             <div class="card-body;">
@@ -19,7 +20,7 @@
                             <th>Fecha</th>
                             <th>Hora</th>
                             <th>Usuario</th>
-                            <th>Acciones</th>
+                           {{--   <th>Acciones</th>  --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -30,14 +31,14 @@
                                 <td><a href="">{{ $cita->servicio_id }}</a></td>
                                 <td><a href="">{{ $cita->fecha }}</a></td>
                                 <td><a href="">{{ $cita->hora }}</a></td>
-                                <td><a href="">{{ $cita->user_id }}</a></td>
-                                <td class="d-flex">
+                                <td><a href="">{{ $cita->user_id}}</a></td>
+                               {{--   <td class="d-flex">
                                     <a href="" class="btn btn-danger">Cancelar</a>
                                     <form action="" method="POST">
                                         @csrf @method('delete')
                                         <button type="submit" class="btn btn-secondary">Editar</button>
                                     </form>
-                                </td>
+                                </td>  --}}
                             </tr>
                         @endforeach
                     </tbody>
@@ -60,7 +61,10 @@
         footer .container {
             width: 400px;
             margin: auto;
-            position: sticky;
+            position: fixed;
+            bottom: 0;
+            right: 300px;  
+            color:rgb(14, 15, 15);
         }
     </style>
 @stop

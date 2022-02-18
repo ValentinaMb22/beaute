@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -81,7 +82,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('admin.users.edit',compact('user'));
+        $roles = Role::all();
+        return view('admin.users.edit',compact('user','roles'));
     }
 
     /**
@@ -93,12 +95,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $validaciones = request()->validate([
+       /*  $validaciones = request()->validate([
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-        ]);
-        if (isset($validaciones)) {
+        ]); */
+        /* if (isset($validaciones)) {
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = $request->password;
@@ -116,7 +118,9 @@ class UserController extends Controller
             $user->save();
         }
         session()->flash('update', 'Usuario actualizado satisfactoriamente!!');
-        return redirect()->route('users.index');
+        return redirect()->route('users.index'); */
+        $user->roles()->sync($request->roles);
+        return redirect()->route('admin.users.edit',$user)->with('info',' usuario asignado correctamente!');
     }
 
     /**

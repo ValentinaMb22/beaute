@@ -18,7 +18,7 @@ class ServicioController extends Controller
      */
     public function index()
     {
-         $servicios = Servicio::all();
+         $servicios = Servicio::simplePaginate(3);
          return view('admin.servicios.index',compact('servicios')); 
     }
 
@@ -42,8 +42,19 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        $servicio = Servicio::create($request->all());
-        return redirect()->route('admin.servicios.index');
+        $servicio = new Servicio;
+        $servicio->sala_id = $request->sala_id;
+        $servicio->categoria_id = $request->categoria_id;
+        $servicio->categoria_id = $request->categoria_id;
+        $servicio->nombre = $request->nombre;
+        $servicio->precio = $request->precio;
+        $servicio->descripcion = $request->descripcion;
+        $imagen = $request->file('imagen');
+            $imagen->move('img', $imagen->getClientOriginalName());
+            $servicio->imagen = $imagen->getClientOriginalName();
+        $servicio->save();
+        /* $servicio = Servicio::create($request->all());*/
+        return redirect()->route('admin.servicios.index'); 
     }
 
     /**

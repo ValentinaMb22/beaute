@@ -76,7 +76,7 @@ class CategoriaController extends Controller
     public function update(Request $request, Categoria $categoria)
     {
         $categoria->update($request->all());
-        return redirect()->route('categorias.index',$categoria);
+        return redirect()->route('admin.categorias.index',$categoria);
     }
 
     /**
@@ -88,6 +88,6 @@ class CategoriaController extends Controller
     public function destroy(Categoria $categoria)
     {
         $categoria->delete();
-        return redirect()->route('categorias.index');
+        return redirect()->route('admin.categorias.index');
     }
 }
