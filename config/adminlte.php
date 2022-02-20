@@ -288,9 +288,9 @@ return [
         [
             'text' => 'Citas',
             'route'  => 'admin.citas.index',
-            'icon' => 'fas fa-fw fa-book',
-            'icon_color' =>'purple',
-            'can' => 'admin.citas.index',
+            'icon' => 'fas fa-fw fa-star',
+            'icon_color' =>'pink',
+            
             
         ],
 
@@ -308,10 +308,10 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Mis citas',
+           /*  'text' => 'Mis citas',
             'route'  => 'admin.citas.index',
             'icon' => 'fas fa-fw fa-star',
-            'icon_color' => 'pink'
+            'icon_color' => 'pink' */
         ],
         [
             'text'    => 'multilevel',

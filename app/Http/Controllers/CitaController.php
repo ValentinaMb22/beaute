@@ -25,8 +25,8 @@ class CitaController extends Controller
         ->where("user_id",$user->id)
         ->select("users.name","users.id")
         ->get();
-        return view('admin.citas.index',compact('citas','user'));
-
+        //return $citas;
+        return view('citas.index',compact('citas','user'));
     }
     /* Metodo para obtener la sala */
     public function getSala(Sala $sala)
@@ -36,7 +36,7 @@ class CitaController extends Controller
        ->where("sala_id",$sala->id)
        ->select("servicios.nombre","servicios.precio","servicios.id")
        ->get();
-       return view('admin.citas.create',compact('sala','servicios'));
+       return view('citas.create',compact('sala','servicios'));
     } 
     
     /**
@@ -67,7 +67,7 @@ class CitaController extends Controller
         $cita->save();
       
         /*  $cita = Cita::create($request->all());*/
-        return redirect()->route('admin.citas.index');  
+        return redirect()->route('citas.index');  
        
     }
 
@@ -88,7 +88,7 @@ class CitaController extends Controller
         ->where("cita_id",$user->id)
         ->select("user.nombre","user.id")
         ->get();
-       return view('admin.citas.show',compact('cita','user'));
+       return view('citas.show',compact('cita','user'));
 
     }
 

@@ -7,9 +7,9 @@
 @stop
 
 @section('content')
-   
-        <a href="{{ route('admin.servicios.create') }}" class="btn btn-info">Crear servicio</a>
-   
+   @can('admin.servicios.create')
+    <a href="{{ route('admin.servicios.create') }}" class="btn btn-info">Crear servicio</a>
+   @endcan
     <div class="card">
         <div class="card-body">
             <table class="table table-success table-striped table-info">
@@ -17,7 +17,9 @@
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
+                       @can('admin.servicios.update')
                         <th>Acciones</th>
+                       @endcan
                     </tr>
                 </thead>
                 @foreach ($servicios as $servicio)

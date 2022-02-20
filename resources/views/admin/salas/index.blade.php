@@ -23,7 +23,9 @@
                         <th scope="col">Logotipo</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Teléfono</th>
-                        <th scope="col">Acciones</th>
+                        @can('admin.salas.update')
+                           <th scope="col">Acciones</th>
+                        @endcan
                     </tr>
                 </thead>
                 @foreach ($salas as $sala)

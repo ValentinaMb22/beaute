@@ -14,31 +14,41 @@
                 <table class="table table-light table-striped table-info">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                          
                             <th>Sala</th>
                             <th>Servicio</th>
                             <th>Fecha</th>
                             <th>Hora</th>
                             <th>Usuario</th>
+                            @can('admin.citas.update')
+                                
+                            @endcan
                            {{--   <th>Acciones</th>  --}}
                         </tr>
                     </thead>
                     <tbody>
+                      
                         @foreach ($citas as $cita)
-                            <tr>
-                                <td><a href="{{ route('admin.citas.show', $cita) }}">{{ $cita->id }}</a></td>
-                                <td><a href="">{{ $cita->sala_id }}</a></td>
-                                <td><a href="">{{ $cita->servicio_id }}</a></td>
-                                <td><a href="">{{ $cita->fecha }}</a></td>
-                                <td><a href="">{{ $cita->hora }}</a></td>
-                                <td><a href="">{{ $cita->user_id}}</a></td>
-                               {{--   <td class="d-flex">
-                                    <a href="" class="btn btn-danger">Cancelar</a>
-                                    <form action="" method="POST">
-                                        @csrf @method('delete')
-                                        <button type="submit" class="btn btn-secondary">Editar</button>
-                                    </form>
-                                </td>  --}}
+                            <tr> 
+                                <td>{{ $cita->sala_id }}</a></td>
+                                <td>{{ $cita->servicio_id }}</td>
+                                <td>{{ $cita->fecha }}</td>
+                                <td>{{ $cita->hora }}</a></td>
+                                <td>{{ $cita->user_id}}</td> 
+                                <form action="{{ route('admin.citas.destroy', $cita->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    @can('admin.citas.edit')
+                                        <td class="d-flex">
+                                            {{--  <a href="{{ route('admin.citas.edit', $cita->id) }}"
+                                                class="btn btn-info">Editar</a>   --}}
+                                    @endcan
+                                        @can('admin.citas.destroy')
+                                           <button class="btn btn-danger">Cancelar</button>
+                                        @endcan
+                                    </td>
+    
+                                </form>
                             </tr>
                         @endforeach
                     </tbody>

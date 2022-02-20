@@ -17,7 +17,9 @@
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
-                        <th>Acciones</th>
+                        @can('admin.categorias.update')
+                           <th>Acciones</th>
+                        @endcan
                     </tr>
                 </thead>
                 @foreach ($categorias as $categoria)

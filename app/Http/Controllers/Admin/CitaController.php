@@ -19,14 +19,17 @@ class CitaController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
      */
+    
     public function index()
     {
         $citas = Cita::all();
-          //return $citas;
-        return view('admin.citas.index',compact('citas'));
+         return view('admin.citas.index',compact('citas'));
 
     }
+
+
     /* Metodo para obtener la sala */
     public function getSala(Sala $sala)
     {
@@ -76,18 +79,14 @@ class CitaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getUser(User $user)
-    {
-       //return $sala;
-       
-    } 
+    
     public function show(Cita $cita, User $user)
     { 
         $users = Cita::join("users","citas.user_id","=","users.id")
        ->where("user_id",$user->id)
        ->select("users.name","users.id")
        ->get();
-        return view('citas.show',compact('cita','user'));
+        return view('admin.citas.show',compact('cita','user'));
     }
 
     /**
@@ -119,8 +118,9 @@ class CitaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cita $cita)
     {
-        //
+        $cita->delete();
+        return redirect()->route('admin.citas.index');
     }
 }

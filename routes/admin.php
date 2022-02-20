@@ -27,6 +27,9 @@ Route::resource('servicios',ServicioController::class)->names('admin.servicios')
 Route::get('getSala/{sala}',[CitaController::class,
 'getSala'])->name('getSala')->middleware('auth');
 
+Route::get('getUser/{user}',[CitaController::class,
+'getUser'])->name('getUser')->middleware('auth');
+
 Route::resource('citas',CitaController::class)->names('admin.citas');
 
 
