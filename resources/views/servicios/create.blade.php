@@ -40,13 +40,28 @@
                             <small class="text-danger">*{{ $message }}</small>
                         @enderror <br>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-sm-12">
+
+                    <div class="col-md-6 col-lg-6 col-sm12">
+                        <label for="">Imagen:</label><br>
+                        <span class="btn btn-secondary btnfile">
+                            <i class="far fa-images"></i>{{-- ícono --}}
+                            <input accept="image/*" onchange="vistaPrevia(event)" type="file" name="imagen">
+                        </span>
+                        <small class="textdanger">{{ $errors->first('imagen') }}</small>
+                    </div>
+                    <div class="imagen col-md-6 col-lg-6 col-sm-12">
+                        <label for="">Vista previa
+                            Imagen:</label><br>
+                        <img src="" id="img-servicio" alt="imagenServicio">
+                    </div>
+
+                    {{-- <div class="col-md-6 col-lg-6 col-sm-12">
                         <label for="">Imagen:</label><br>
                         <input type="file" name="imagen" class="form-control" value="{{ old('imagen') }}">
                         @error('imagen')
                             <small class="text-danger">*{{ $message }}</small>
                         @enderror <br>
-                    </div>
+                    </div> --}}
 
                     <div class="col-md-6 col-lg-6 col-sm-12">
                         <label>Precio:</label><br>
@@ -81,6 +96,23 @@
 
 @section('js')
     <script>
-        console.log('Hi!');
+        <script>
+            function ocultarAlerta() {
+                document.querySelector(".alert").style.display
+                = 'none';
+                }
+                setTimeout(ocultarAlerta,3000);
+                // vista previa de la imagen
+                let vistaPrevia = ()=>{
+                let leerImg = new FileReader();
+                let id_img = document.getElementById('img-servicio');
+                leerImg.onload = ()=>{
+                if (leerImg.readyState == 2) {
+                id_img.src = leerImg.result;
+                }
+                }
+                leerImg.readAsDataURL(event.target.files[0])
+                }
+        </script>
     </script>
 @stop

@@ -20,6 +20,7 @@ use App\Http\Controllers\IndexController;
 |
 */
 Route::get('/',[IndexController::class,'index']);
+
  /* Route::get('/', function () {
     return view('dashboard');
 }); */
@@ -43,8 +44,8 @@ Route::resource('categorias',CategoriaController::class)->names('categorias');
 /* Route::resource('users',UserController::class)->names('users'); */
 
 /* Rutas paginas estaticas */
-Route::view('/nosotros', 'nosotros');
-Route::view('/contacto', 'contacto');
+Route::view('/nosotros', 'nosotros')->name('nosotros');
+Route::view('/contacto', 'contacto')->name('contacto');
 
 Route::get('getSala/{sala}',[CitaController::class,
 'getSala'])->name('getSala')->middleware('auth');

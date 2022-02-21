@@ -28,11 +28,11 @@
         </div>
     </section>
     {{-- pie de pagina --}}
-    <footer style="background-color: black;color:aqua;height:50px">
-        <div class="container">
+    <footer>
+        <div class="footercontainer">
             <small>BeautéApp ©2022 | Todos los derechos reservados.
+                <address>Developer: Valentina Mosquera</address>
             </small>
         </div>
     </footer>
-
 </x-app-layout>

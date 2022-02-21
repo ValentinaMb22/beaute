@@ -1,16 +1,10 @@
-@extends('adminlte::page')
-
-@section('title', 'Ver sala')
-
-@section('content_header')
-    <h1>{{$sala->nombre}}</h1>
-@stop
-
-@section('content')
-<a href="{{route('salas.index')}}" class="btn btn-info">Volver a salas</a>
-<a href="{{route('categorias.index')}}" class="btn btn-info">Categorías</a>
-<a href="{{route('servicios.index')}}" class="btn btn-info" >Servicios</a>
+<x-app-layout>
+<section class="dashboard">
+    <a href="/" class="btn btn-info">Volver a salas</a>
     <div class="card">
+        <div class="card-header">
+            <h1>{{$sala->nombre}}</h1>
+        </div>
         <div class="card-body">
             <table class="table table-light table-striped table-info">
                 <thead>
@@ -26,9 +20,13 @@
                     <tbody>
                         <tr>  
                             <td>{{$servicio->nombre}}</td>
-                            <td>{{$servicio->imagen}}</td>
+                            <td>
+                                <div class="imagen">
+                                    <img  height="100" width="100" class=" img-fluid" src="{{ asset('img/' . $servicio->imagen) }}" alt="servicio">
+                                </div>
+                            </td>
                             <td>{{$servicio->descripcion}}</td>
-                            <td>{{$servicio->precio}}</td>
+                            <td>{{$servicio->precio}} COP</td>
                             <td>
                                 @if (Auth::user())
                             <a href="{{ route('getSala',$sala) }}" class="btn btn-info">Agendar cita</a>
@@ -43,12 +41,13 @@
             </table>
         </div>
     </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop
+</section>
+{{-- pie de pagina --}}
+<footer>
+    <div class="footercontainer">
+        <small>BeautéApp ©2022 | Todos los derechos reservados.
+            <address>Developer: Valentina Mosquera</address>
+        </small>
+    </div>
+</footer>
+</x-app-layout> 

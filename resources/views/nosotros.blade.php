@@ -1,6 +1,7 @@
 <x-app-layout>
-    <section class="d-flex nosotros">
-        <article class="contenedorArticulo">
+   <section style="height:800px">
+    <section class="d-flex nosotros1">
+        <article class="contenedorArticulo1">
             <h3>Quienes somos?</h3>
             <p>
                 Beauté surge de la necesidad de optimizar los procesos en las salas de belleza de la ciudad de Popayán,
@@ -10,7 +11,7 @@
             </p>
         </article>
 
-        <article class="contenedorArticulo">
+        <article class="contenedorArticulo1">
             <h3>Misión</h3>
             <p>Sistematizar y modernizar el monitoreo
                 de las salas de belleza o spa para así
@@ -22,13 +23,13 @@
                 es trategias de atención al cliente.</p>
         </article>
     </section>
-    <section class="d-flex nosotros">
-        <article class="contenedorArticulo">
+    <section class="d-flex nosotros2">
+        <article class="contenedorArticulo2">
             <h3>Visión</h3>
             <p>En el 2022 seremos una empresa distinguida y reconocida en el mundo de la cosmética y cuidado personal, logrando satisfacer las necesidades del cliente mediante la prestación de un servicio, con amplios niveles de calidad e innovación.
             </p>
         </article>
-        <article class="contenedorArticulo">
+        <article class="contenedorArticulo2">
             {{-- carrusel --}}
         <div style="height:350px; width:450px;margin:auto;">
             <h3 class="text-info">Galería</h3>
@@ -62,9 +63,12 @@
         {{-- fin del carrusel --}}
         </article>
     </section>
+   </section>
+    {{-- pie de pagina --}}
     <footer>
-        <div class="container">
-            <small>BeautéApp ©2022 | Todos los derechos reservados. 
+        <div class="footercontainer">
+            <small>BeautéApp ©2022 | Todos los derechos reservados.
+                <address>Developer: Valentina Mosquera</address>
             </small>
         </div>
     </footer>

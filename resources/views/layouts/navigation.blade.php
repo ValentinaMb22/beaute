@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="image/logoBeauteApp.png" alt="" width="100" height="100" class="d-inline-block align-text-top">
+        <a class="navbar-brand" href="/">
+            <img src="image/logoBeauteApp.png" alt="logo" width="100"  class="d-inline-block align-text-top">
             BeautéApp
         </a>
     </div>
@@ -13,13 +13,13 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="nosotros
+                <a class="nav-link" href="{{route('nosotros')}}
                 ">Sobre nosotros</a>
-                <a class="nav-link" href="contacto"> Contáctenos</a>
+                <a class="nav-link" href="{{route('contacto')}}"> Contáctenos</a>
                 @if (Auth::user())
-                @can('admin.home')
+                
                  <a class="nav-link" href="{{route('admin.home')}}">Dashboard</a>
-                @endcan
+               
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

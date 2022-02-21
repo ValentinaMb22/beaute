@@ -3,7 +3,7 @@
 @section('title', 'Salas')
 
 @section('content_header')
-    <h1>Bienvenido a la pagina principal de salas</h1>
+    
 @stop
 
 @section('content')
@@ -14,6 +14,9 @@
     @endcan
 
     <div class="card">
+        <div class="card-header">
+            <h3>Bienvenido a la pagina principal de salas</h3>
+        </div>
         <div class="card-body">
             <table class="table table-success table-striped table-info">
                 <thead>
